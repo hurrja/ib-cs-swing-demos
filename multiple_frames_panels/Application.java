@@ -19,6 +19,14 @@ public class Application
 {
   public Application ()
   {
-    new GUI ();
+    gui = new GUI ();
   }
+
+  public void close ()
+  {
+    gui.dispose ();
+    gui = null;
+  }
+  
+  private GUI gui;
 }

@@ -41,7 +41,19 @@ public class Main extends JFrame
     Container contentPane = getContentPane ();
     contentPane.setLayout (new BoxLayout (contentPane, BoxLayout.PAGE_AXIS));
     JCheckBox multipleFramesPanelsCheck = new JCheckBox ("multiple frames and panels", false);
-    multipleFramesPanelsCheck.addItemListener ((ItemEvent e) -> multipleFramesPanelsApp = e.getStateChange () == 1 ? new multiple_frames_panels.Application () : null);
+    multipleFramesPanelsCheck.addItemListener (
+      (ItemEvent e) ->
+      {
+        boolean on = e.getStateChange () == 1;
+        if (on)
+          multipleFramesPanelsApp =  new multiple_frames_panels.Application ();
+        else
+        {
+          multipleFramesPanelsApp.close ();
+          multipleFramesPanelsApp = null;
+        }
+      });
+      
     add (multipleFramesPanelsCheck);
     pack ();
     setVisible (true);
