@@ -37,10 +37,9 @@ public class Main extends JFrame
     menuBar.add (fileMenu);
     setJMenuBar (menuBar);
 
-    
     Container contentPane = getContentPane ();
     contentPane.setLayout (new BoxLayout (contentPane, BoxLayout.PAGE_AXIS));
-    JCheckBox multipleFramesPanelsCheck = new JCheckBox ("multiple frames and panels", false);
+    JCheckBox multipleFramesPanelsCheck = new JCheckBox ("multiple frames and switching panels", false);
     multipleFramesPanelsCheck.addItemListener (
       (ItemEvent e) ->
       {
@@ -53,8 +52,8 @@ public class Main extends JFrame
           multipleFramesPanelsApp = null;
         }
       });
-      
     add (multipleFramesPanelsCheck);
+
     pack ();
     setVisible (true);
   }

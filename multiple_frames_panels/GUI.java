@@ -31,7 +31,7 @@ public class GUI extends JFrame
   // constructor will create all GUI components and set their properties
   public GUI ()
   {
-    super ("A multi-panel / multi-frame demo");
+    super ("Multiple frames and switching panels");
 
     // frame properties
     setSize (400, 300);
