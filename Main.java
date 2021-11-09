@@ -17,6 +17,7 @@ import javax.swing.*;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
+import java.util.function.Supplier;
 
 public class Main extends JFrame
 {
@@ -45,18 +46,35 @@ public class Main extends JFrame
       {
         boolean on = e.getStateChange () == 1;
         if (on)
-          multipleFramesPanelsFrame =  new multiple_frames_panels.Main ();
+          multipleFramesPanelsDemo = new Demo (() -> { return (new multiple_frames_panels.Main ()); });
         else
         {
-          multipleFramesPanelsFrame.dispose ();
-          multipleFramesPanelsFrame = null;
+          multipleFramesPanelsDemo.close ();
+          multipleFramesPanelsDemo = null;
         }
       });
+
     add (multipleFramesPanelsCheck);
     
     pack ();
     setVisible (true);
   }
 
-  private JFrame multipleFramesPanelsFrame;
+  private Demo multipleFramesPanelsDemo;
+}
+
+class Demo
+{
+  public Demo (Supplier<JFrame> supplier)
+  {
+    frame = supplier.get ();
+  }
+
+  public void close ()
+  {
+    frame.dispose ();
+    frame = null;
+  }
+
+  private JFrame frame;
 }
