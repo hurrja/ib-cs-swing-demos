@@ -45,18 +45,18 @@ public class Main extends JFrame
       {
         boolean on = e.getStateChange () == 1;
         if (on)
-          multipleFramesPanelsApp =  new multiple_frames_panels.Application ();
+          multipleFramesPanelsFrame =  new multiple_frames_panels.Main ();
         else
         {
-          multipleFramesPanelsApp.close ();
-          multipleFramesPanelsApp = null;
+          multipleFramesPanelsFrame.dispose ();
+          multipleFramesPanelsFrame = null;
         }
       });
     add (multipleFramesPanelsCheck);
-
+    
     pack ();
     setVisible (true);
   }
 
-  private multiple_frames_panels.Application multipleFramesPanelsApp;
+  private JFrame multipleFramesPanelsFrame;
 }

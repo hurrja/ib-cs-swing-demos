@@ -20,22 +20,20 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.List;
 
-// gui extends frame and inherits all its methods (e.g., for setting
-// size, adding components)
-
-public class GUI extends JFrame
+public class Main extends JFrame
 {
-  // constructor will create all GUI components and set their properties
-  public GUI ()
+  public Main ()
   {
     super ("Multiple frames and switching panels");
-
-    // frame properties
     setSize (400, 300);
-    CardLayout cardLayout = new CardLayout (); // "card stack" layout of panels 
+
+    // "card stack" layout for having multiple panels and switching between them
+    CardLayout cardLayout = new CardLayout ();
     setLayout (cardLayout);
 
     // two panels, one of which will be shown at a time
@@ -52,7 +50,7 @@ public class GUI extends JFrame
     JMenuBar menuBar = new JMenuBar ();
     JMenu fileMenu = new JMenu ("File");
     JMenuItem newItem = new JMenuItem ("New frame");
-    newItem.addActionListener ((ActionEvent e) -> new GUI ());
+    newItem.addActionListener ((ActionEvent e) -> new Main ());
 
     // menu item switching to one panel
     JMenuItem redItem = new JMenuItem ("Red panel");
@@ -66,15 +64,28 @@ public class GUI extends JFrame
     menuBar.add (fileMenu);
     setJMenuBar (menuBar);
 
-    guiList.add (this);
+    // all frames are stored in a list and all are disposed when
+    // initial "root" frame is disposed
+    if (frameList.size () == 0)
+    {
+      rootFrame = this;
+      addWindowListener (new WindowAdapter ()
+        {
+          @Override
+          public void windowClosed (WindowEvent e)
+          {
+            for (JFrame f : frameList)
+              if (f != rootFrame)
+                f.dispose ();
+          }
+        }
+        );
+    }
+    frameList.add (this);
+    
     setVisible (true); // show frame
   }
 
-  void close ()
-  {
-    for (GUI g : guiList)
-      g.dispose ();
-  }
-
-  private static List<GUI> guiList = new ArrayList<> ();
+  private static JFrame rootFrame;
+  private static List<JFrame> frameList = new ArrayList<> ();
 }
