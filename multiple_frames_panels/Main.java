@@ -77,6 +77,7 @@ public class Main extends JFrame
             for (JFrame f : frameList)
               if (f != rootFrame)
                 f.dispose ();
+            frameList.clear ();
           }
         }
         );
