@@ -24,7 +24,7 @@ public class Application
 
   public void close ()
   {
-    gui.dispose ();
+    gui.close ();
     gui = null;
   }
   

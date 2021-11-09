@@ -20,6 +20,8 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 // gui extends frame and inherits all its methods (e.g., for setting
 // size, adding components)
@@ -58,16 +60,21 @@ public class GUI extends JFrame
     // menu item switching to other panel
     JMenuItem blueItem = new JMenuItem ("Blue panel");
     blueItem.addActionListener ((ActionEvent e) -> cardLayout.show (getContentPane (), BLUE_PANEL_NAME));
-
-    JMenuItem quitItem = new JMenuItem ("Quit");
-    quitItem.addActionListener ((ActionEvent e) -> System.exit (0));
     fileMenu.add (newItem);
     fileMenu.add (redItem);
     fileMenu.add (blueItem);
-    fileMenu.add (quitItem);
     menuBar.add (fileMenu);
     setJMenuBar (menuBar);
 
+    guiList.add (this);
     setVisible (true); // show frame
   }
+
+  void close ()
+  {
+    for (GUI g : guiList)
+      g.dispose ();
+  }
+
+  private static List<GUI> guiList = new ArrayList<> ();
 }
