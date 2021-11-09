@@ -40,24 +40,28 @@ public class Main extends JFrame
 
     Container contentPane = getContentPane ();
     contentPane.setLayout (new BoxLayout (contentPane, BoxLayout.PAGE_AXIS));
-    JCheckBox multipleFramesPanelsCheck = new JCheckBox ("multiple frames and switching panels", false);
-    multipleFramesPanelsCheck.addItemListener (
-      (ItemEvent e) ->
-      {
-        boolean on = e.getStateChange () == 1;
-        if (on)
-          multipleFramesPanelsDemo = new Demo (() -> { return (new multiple_frames_panels.Main ()); });
-        else
-        {
-          multipleFramesPanelsDemo.close ();
-          multipleFramesPanelsDemo = null;
-        }
-      });
 
+    JCheckBox multipleFramesPanelsCheck = new JCheckBox ("multiple frames and switching panels", false);
+    multipleFramesPanelsDemo = new Demo (() -> { return (new multiple_frames_panels.Main ()); });
+    associateDemo (multipleFramesPanelsCheck, multipleFramesPanelsDemo);
     add (multipleFramesPanelsCheck);
     
     pack ();
     setVisible (true);
+  }
+
+  private Demo associateDemo (JCheckBox checkBox, Demo demo)
+  {
+    checkBox.addItemListener (
+      (ItemEvent e) ->
+      {
+        if (e.getStateChange () == 1)
+          demo.open ();
+        else
+          demo.close ();
+      });
+
+    return demo;
   }
 
   private Demo multipleFramesPanelsDemo;
@@ -66,6 +70,12 @@ public class Main extends JFrame
 class Demo
 {
   public Demo (Supplier<JFrame> supplier)
+  {
+    this.supplier = supplier;
+    frame = null;
+  }
+
+  public void open ()
   {
     frame = supplier.get ();
   }
@@ -76,5 +86,6 @@ class Demo
     frame = null;
   }
 
+  Supplier<JFrame> supplier;
   private JFrame frame;
 }
