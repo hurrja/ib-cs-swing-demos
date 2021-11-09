@@ -83,9 +83,9 @@ public class Main extends JFrame
     }
     frameList.add (this);
     
-    setVisible (true); // show frame
+    setVisible (true);
   }
 
-  private static JFrame rootFrame;
-  private static List<JFrame> frameList = new ArrayList<> ();
+  private static JFrame rootFrame; // initial frame for this demo
+  private static List<JFrame> frameList = new ArrayList<> (); // list of all frames
 }
