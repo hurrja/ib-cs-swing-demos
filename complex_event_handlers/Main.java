@@ -31,7 +31,7 @@ public class Main extends JFrame implements WindowFocusListener
 {
   public Main ()
   {
-    super ("Complex event demo");
+    super ("Complex event handlers");
     setSize (400, 300);
 
     hasFocus = false;
