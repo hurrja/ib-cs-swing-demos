@@ -41,20 +41,13 @@ public class Main extends JFrame
     Container contentPane = getContentPane ();
     contentPane.setLayout (new BoxLayout (contentPane, BoxLayout.PAGE_AXIS));
 
-    addDemo ("table with editable combo box column",
-             () -> { return (new table_editable_combo_column.Main ()); });
-    addDemo ("multiple frames and switching panels",
-             () -> { return (new multiple_frames_panels.Main ()); });
-    addDemo ("nested panels",
-             () -> { return (new nested_panels.Main ()); });
-    addDemo ("grid of panels",
-             () -> { return (new panel_grid.Main ()); });
-    addDemo ("complex event handlers",
-             () -> { return (new complex_event_handlers.Main ()); });
-    addDemo ("table cell rendering",
-             () -> { return (new table_cell_rendering.Main ()); });
-    addDemo ("automatic gap resizing in group layout",
-             () -> { return (new group_layout_gap_resizing.Main ()); });
+    addDemo ("table with editable combo box column", () -> new table_editable_combo_column.Main ());
+    addDemo ("multiple frames and switching panels", () -> new multiple_frames_panels.Main ());
+    addDemo ("nested panels", () -> new nested_panels.Main ());
+    addDemo ("grid of panels", () -> new panel_grid.Main ());
+    addDemo ("complex event handlers", () -> new complex_event_handlers.Main ());
+    addDemo ("table cell rendering", () -> new table_cell_rendering.Main ());
+    addDemo ("automatic gap resizing in group layout", () -> new group_layout_gap_resizing.Main ());
     
     pack ();
     setVisible (true);
