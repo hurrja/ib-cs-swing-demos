@@ -42,26 +42,27 @@ public class Main extends JFrame
     contentPane.setLayout (new BoxLayout (contentPane, BoxLayout.PAGE_AXIS));
 
     addDemo ("table with editable combo box column",
-             new Demo (() -> { return (new table_editable_combo_column.Main ()); }));
+             () -> { return (new table_editable_combo_column.Main ()); });
     addDemo ("multiple frames and switching panels",
-             new Demo (() -> { return (new multiple_frames_panels.Main ()); }));
+             () -> { return (new multiple_frames_panels.Main ()); });
     addDemo ("nested panels",
-             new Demo (() -> { return (new nested_panels.Main ()); }));
+             () -> { return (new nested_panels.Main ()); });
     addDemo ("grid of panels",
-             new Demo (() -> { return (new panel_grid.Main ()); }));
+             () -> { return (new panel_grid.Main ()); });
     addDemo ("complex event handlers",
-             new Demo (() -> { return (new complex_event_handlers.Main ()); }));
+             () -> { return (new complex_event_handlers.Main ()); });
     addDemo ("table cell rendering",
-             new Demo (() -> { return (new table_cell_rendering.Main ()); }));
+             () -> { return (new table_cell_rendering.Main ()); });
     addDemo ("automatic gap resizing in group layout",
-             new Demo (() -> { return (new group_layout_gap_resizing.Main ()); }));
+             () -> { return (new group_layout_gap_resizing.Main ()); });
     
     pack ();
     setVisible (true);
   }
 
-  private void addDemo (String title, Demo demo)
+  private void addDemo (String title, Supplier<JFrame> supplier)
   {
+    Demo demo = new Demo (supplier);
     JCheckBox checkBox = new JCheckBox (title, false);
     checkBox.addItemListener (
       (ItemEvent e) ->
