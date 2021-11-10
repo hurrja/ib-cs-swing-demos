@@ -10,14 +10,9 @@ import java.awt.event.ActionListener;
 
 public class Main extends JFrame
 {
-  public static void main (String[] args)
-  {
-    SwingUtilities.invokeLater (() -> new Main ());
-  }
-  
   public Main ()
   {
-    super ("test frame");
+    super ("Table cell rendering");
 
     // application data
     dataList = new ArrayList<> ();
