@@ -43,6 +43,8 @@ public class Main extends JFrame
 
     addDemo ("multiple frames and switching panels",
              new Demo (() -> { return (new multiple_frames_panels.Main ()); }));
+    addDemo ("nested panels",
+             new Demo (() -> { return (new nested_panels.Main ()); }));
     addDemo ("grid of panels",
              new Demo (() -> { return (new panel_grid.Main ()); }));
     addDemo ("complex event handlers",
