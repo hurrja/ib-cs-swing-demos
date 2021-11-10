@@ -47,6 +47,8 @@ public class Main extends JFrame
              new Demo (() -> { return (new complex_event_handlers.Main ()); }));
     addDemo ("table cell rendering",
              new Demo (() -> { return (new table_cell_rendering.Main ()); }));
+    addDemo ("automatic gap resizing in group layout",
+             new Demo (() -> { return (new group_layout_gap_resizing.Main ()); }));
     
     pack ();
     setVisible (true);
