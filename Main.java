@@ -45,6 +45,8 @@ public class Main extends JFrame
              new Demo (() -> { return (new multiple_frames_panels.Main ()); }));
     addDemo ("complex event handlers",
              new Demo (() -> { return (new complex_event_handlers.Main ()); }));
+    addDemo ("table cell rendering",
+             new Demo (() -> { return (new table_cell_rendering.Main ()); }));
     
     pack ();
     setVisible (true);
