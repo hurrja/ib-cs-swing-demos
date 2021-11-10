@@ -41,6 +41,7 @@ public class Main extends JFrame
     Container contentPane = getContentPane ();
     contentPane.setLayout (new BoxLayout (contentPane, BoxLayout.PAGE_AXIS));
 
+    addDemo ("table with editable boolean column", () -> new table_editable_boolean_column.Main ());
     addDemo ("table with editable combo box column", () -> new table_editable_combo_column.Main ());
     addDemo ("multiple frames and switching panels", () -> new multiple_frames_panels.Main ());
     addDemo ("nested panels", () -> new nested_panels.Main ());
