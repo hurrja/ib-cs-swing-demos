@@ -46,6 +46,7 @@ public class Main extends JFrame
     addDemo ("table with editable combo box column", () -> new table_editable_combo_column.Main ());
     addDemo ("adding column elements to table", () -> new table_add_column_elements.Main ());
     addDemo ("multiple frames and switching panels", () -> new multiple_frames_panels.Main ());
+    addDemo ("group layout", () -> new group_layout.Main ());
     addDemo ("nested panels", () -> new nested_panels.Main ());
     addDemo ("grid of panels", () -> new panel_grid.Main ());
     addDemo ("complex event handlers", () -> new complex_event_handlers.Main ());
