@@ -10,14 +10,14 @@ public class Main extends JFrame
     super ("Group layout");
     GroupLayout layout = new GroupLayout (getContentPane ());
     getContentPane ().setLayout (layout);
-
+    Font largeFont = new Font ("Calibri", Font.BOLD, 20);
     JLabel enterName = new JLabel ("Enter the name of the thingy");
-    enterName.setFont(new Font ("Calibri", Font.BOLD, 20));
+    enterName.setFont (largeFont);
 
     JTextField name = new JTextField (15);
 
     JLabel choose = new JLabel ("Choose the category");
-    choose.setFont (new Font ("Calibri", Font.BOLD, 20));
+    choose.setFont (largeFont);
 
     JCheckBox great = new JCheckBox ("great");
     JCheckBox brilliant = new JCheckBox ("brilliant");
