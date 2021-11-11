@@ -29,17 +29,18 @@ public class Main extends JFrame
   {
     super ("Table with changing data");
 
-    // application data
+    // application data (see class below)
     dataList = new ArrayList<> ();
     dataList.add (new MyDataType ("A", true));
     dataList.add (new MyDataType ("B", false));
 
-    // MVC-style table model that will return properties of data shown
-    // in table
+    // table model that links table to application data; here each
+    // data item is shown on a row of the table
     tableModel = new AbstractTableModel ()
       {
-        public int getColumnCount () { return 2; }
-        public int getRowCount () { return dataList.size (); }
+        public int getColumnCount () { return 2; } // two fields in data class
+        public int getRowCount () { return dataList.size (); } // one row for each data item
+        // returns the value that is shown in specific cell
         public Object getValueAt (int row, int column)
         {
           MyDataType data = dataList.get (row);
@@ -50,7 +51,7 @@ public class Main extends JFrame
         }
       };
 
-    // create table
+    // create table and associate it with table model above
     table = new JTable (tableModel);
     add (table);
 
@@ -67,6 +68,7 @@ public class Main extends JFrame
     setVisible (true);
   }
 
+  // toggles the boolean value on the selected row
   private void toggleData ()
   {
     int row = table.getSelectedRow (); // returns -1 if none selected
@@ -74,13 +76,13 @@ public class Main extends JFrame
     {
       MyDataType data = dataList.get (row);
       data.value = !data.value;
-      tableModel.fireTableDataChanged ();
+      tableModel.fireTableDataChanged (); // tell table that data has changed
     }
   }
   
   private JTable table;
   private AbstractTableModel tableModel;
-  List<MyDataType> dataList;
+  private List<MyDataType> dataList;
 }
 
 class MyDataType
