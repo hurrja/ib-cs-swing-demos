@@ -12,7 +12,9 @@
     Demonstrates how to have a checkbox column whose entries are
     linked to boolean variables.
 *** Adding column elements to table
-    Demonstrates how to add elements to the column of a table.
+    Demonstrates how to add elements to the column of a table. Also
+    shows how to show each data element (which in this case is a list)
+    in a corresponding column of the table.
 *** Multiple frames and switching panels
     Demonstrates two different ways to have multiple
     \ldquo{}views\rdquo in your application
