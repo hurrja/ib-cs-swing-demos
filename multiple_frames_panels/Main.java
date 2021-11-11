@@ -48,7 +48,7 @@ public class Main extends JFrame
 
     // menu bar
     JMenuBar menuBar = new JMenuBar ();
-    JMenu fileMenu = new JMenu ("File");
+    JMenu fileMenu = new JMenu ("View");
     JMenuItem newItem = new JMenuItem ("New frame");
     newItem.addActionListener ((ActionEvent e) -> new Main ());
 
