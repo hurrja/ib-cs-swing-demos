@@ -28,13 +28,12 @@ public class Main extends JFrame
   {
     super ("Table with editable combo box column");
 
-    // application toy data (see data type class below)
+    // application data (see data type class below)
     dataList = new ArrayList<> ();
     dataList.add (new MyDataType ("A", true));
     dataList.add (new MyDataType ("B", false));
 
-    // MVC-style table model that will return properties of data shown
-    // in table
+    // table model linking table to application data
     tableModel = new AbstractTableModel ()
       {
         public int getColumnCount () { return 2; }
@@ -57,8 +56,8 @@ public class Main extends JFrame
             return "Value";
         }
 
-        // return class of column; with this, boolean column is drawn
-        // automatically as checkbox
+        // return class of column; with this implemented, boolean
+        // column is drawn automatically as checkbox
         public Class<?> getColumnClass (int column)
         {
           if (column == 0)
@@ -91,7 +90,7 @@ public class Main extends JFrame
 
   private JTable table;
   private AbstractTableModel tableModel;
-  List<MyDataType> dataList;
+  private List<MyDataType> dataList;
 }
 
 class MyDataType
