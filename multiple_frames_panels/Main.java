@@ -79,8 +79,7 @@ public class Main extends JFrame
                 f.dispose ();
             frameList.clear ();
           }
-        }
-        );
+        });
     }
     frameList.add (this);
     
