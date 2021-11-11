@@ -35,11 +35,12 @@ public class Main extends JFrame
     dataList.add (new ArrayList<> (Arrays.asList ("A", "B")));
     dataList.add (new ArrayList<> (Arrays.asList ("C")));
 
-    // MVC-style table model that will return properties of data shown
-    // in table; each list is shown in the column of the table
+    // each list is shown as a column in the table
     tableModel = new AbstractTableModel ()
       {
         public int getColumnCount () { return dataList.size (); }
+
+        // table row count equals length of longest list item
         public int getRowCount ()
         {
           int max = 0;
@@ -66,7 +67,9 @@ public class Main extends JFrame
     table = new JTable (tableModel);
     table.setRowSelectionAllowed (false);
     table.setColumnSelectionAllowed (true); // allow column selection only
-    add (new JScrollPane (table));
+
+    // include a scroll pane to table to show column names
+    add (new JScrollPane (table)); 
 
     // menu bar with one item for adding data to a column
     JMenuBar menuBar = new JMenuBar ();
@@ -86,8 +89,10 @@ public class Main extends JFrame
     int column = table.getSelectedColumn (); // returns -1 if none selected
     if (column >= 0)
     {
-      List<String> list = dataList.get (column);
-      list.add ("X"); // add string to column
+      // select data list corresponding to column
+      List<String> list = dataList.get (column); 
+
+      list.add ("" + (list.size () + 1)); // add string to data list
       tableModel.fireTableDataChanged (); // tell table to redraw
     }
   }
