@@ -1,0 +1,54 @@
+* A set of Swing demos
+** The purpose of this repository
+   This repository contains an application with examples of Java Swing
+   graphical user interface techniques. In the application, the
+   different demos can be opened using checkboxes.
+   
+** Included demos
+*** Table with changing data
+    Demonstrates how to use class =AbstractTableModel= to link user
+    data to table cells. The data can be changed via a menu item.
+*** Table with editable boolean column
+    Demonstrates how to have a checkbox column whose entries are
+    linked to boolean variables.
+*** Adding column elements to table
+    Demonstrates how to 
+*** Multiple frames and switching panels
+*** Group layout
+*** Nested panels
+*** Grid of panels
+*** Complex event handlers
+    A case of complex event handling, where lambda expressions are no
+    longer sufficient as event handlers. The methods illustrated are
+    1. using an existing class to implement a listening interface:
+       class =Main= as a =WindowFocusListener=
+    2. using an anonymous class to implement a listening interface:
+       =DocumentListener=.
+*** Table cell rendering
+*** Automatic gap resizing in group layout
+** Installation in IDEA
+   To install the application in IDEA, do the following:
+   1. Clone the repository.
+   2. Right click on class =Main=.
+   3. Select =Run Main.main()=
+   You are now able to make changes to the project and run it again.
+
+** Alternative installation method
+   1. Clone repository.
+   2. Run =ant= default target (builds and runs the application).
+   
+** License
+   Copyright (C) 2021 Jarmo Hurri
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.
