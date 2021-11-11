@@ -12,20 +12,36 @@
     Demonstrates how to have a checkbox column whose entries are
     linked to boolean variables.
 *** Adding column elements to table
-    Demonstrates how to 
+    Demonstrates how to add elements to the column of a table.
 *** Multiple frames and switching panels
+    Demonstrates two different ways to have multiple
+    \ldquo{}views\rdquo in your application
+    - multiple frames
+    - one frame with switching panel (container).
 *** Group layout
+    Demonstrates the use of group layout, where you need to specify
+    the positioning of the components both in vertical and horizontal
+    direction.
 *** Nested panels
+    Demonstrates the construction of nested panels, that is,
+    containers within containers.
 *** Grid of panels
+    Demonstrates the construction of a grid of panels, typical in
+    applications with a calendar.
 *** Complex event handlers
-    A case of complex event handling, where lambda expressions are no
-    longer sufficient as event handlers. The methods illustrated are
+    Demonstrates complex event handling, where lambda expressions are
+    no longer sufficient as event handlers. The methods illustrated
+    are
     1. using an existing class to implement a listening interface:
        class =Main= as a =WindowFocusListener=
     2. using an anonymous class to implement a listening interface:
        =DocumentListener=.
 *** Table cell rendering
+    Demonstrates rendering (here, coloring) table cells with different
+    colors depending on data shown.
 *** Automatic gap resizing in group layout
+    Demonstrates automatic horizontal alignment (\ldquo{}glue\rdquo)
+    in a group layout.
 ** Installation in IDEA
    To install the application in IDEA, do the following:
    1. Clone the repository.
