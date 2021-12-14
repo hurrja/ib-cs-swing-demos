@@ -40,6 +40,12 @@ public class Main extends JFrame
     layout.setAutoCreateGaps (true);
     layout.setAutoCreateContainerGaps (true);
     
+    // in group layout, both the horizontal and vertical grouping need
+    // to be specified
+
+    // horizontally there are four rows:
+    // - three with individual components (label, text field, label) and one with two
+    // components in sequence (check boxes)
     layout.setHorizontalGroup (
       layout.createParallelGroup ()
       .addComponent (enterName)
@@ -49,12 +55,15 @@ public class Main extends JFrame
                  .addComponent (great)
                  .addComponent (brilliant)));
     
+    // vertically there is one column (sequential group) containing 
+    // - three individual components (label, text field, label)
+    // - one parallel group with two components (check boxes)
     layout.setVerticalGroup (
       layout.createSequentialGroup ()
       .addComponent (enterName)
       .addComponent (name)
       .addComponent (choose)
-      .addGroup (layout.createParallelGroup (GroupLayout.Alignment.LEADING)
+      .addGroup (layout.createParallelGroup ()
                  .addComponent (great)
                  .addComponent (brilliant)));
     
