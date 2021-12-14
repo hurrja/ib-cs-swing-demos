@@ -57,9 +57,6 @@ public class Main extends JFrame
 
   public void setComboBoxContents (String filteringString)
   {
-    if (!comboBox.isPopupVisible())
-        comboBox.showPopup();
-    
     List<String> filteredList = new ArrayList<> ();
     for (String s : dataList)
       if (s.startsWith (filteringString))
@@ -69,6 +66,10 @@ public class Main extends JFrame
     for (String s : filteredList)
       comboBoxModel.addElement (s);
     comboBoxTextField.setText (filteringString);
+
+    if (!comboBox.isPopupVisible ())
+      comboBox.showPopup ();
+    comboBox.setMaximumRowCount (filteredList.size ());
   }
   
   private JComboBox<String> comboBox;
