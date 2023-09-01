@@ -53,6 +53,7 @@ public class Main extends JFrame
     addDemo ("complex event handlers", () -> new complex_event_handlers.Main ());
     addDemo ("table cell rendering", () -> new table_cell_rendering.Main ());
     addDemo ("automatic gap resizing in group layout", () -> new group_layout_gap_resizing.Main ());
+    addDemo ("tabbed panes", () -> new tabbed_panes.Main ());
     
     pack ();
     setVisible (true);
